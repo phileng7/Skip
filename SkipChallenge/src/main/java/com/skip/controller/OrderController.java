@@ -17,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.skip.entity.Customer;
 import com.skip.entity.Order;
+import com.skip.entity.Product;
 import com.skip.service.IOrderService;
 
 @Controller
@@ -25,10 +26,16 @@ public class OrderController {
 	@Autowired
 	private IOrderService orderService;
 	
-	@GetMapping("Order/{orderId}")
+	@GetMapping("Order/customer")
 	public ResponseEntity<List<Order>> getAllOrders() {
 		List<Order> list = orderService.getAllOrders();
 		return new ResponseEntity<List<Order>>(list, HttpStatus.OK);
+	}
+	
+	@GetMapping("Order/{orderId}")
+	public ResponseEntity<Order> getProductById(@PathVariable("id") int id) {
+		Order ord = orderService.getOrderById(id);
+		return new ResponseEntity<Order>(ord, HttpStatus.OK);
 	}
 	
 	@PostMapping("Order")
