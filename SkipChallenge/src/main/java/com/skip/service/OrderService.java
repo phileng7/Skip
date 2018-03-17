@@ -38,5 +38,15 @@ public class OrderService implements IOrderService {
 	public void setStatusOrder(int id, String status) {
 		orderDAO.setStatusOrder(id, status);
 	}
+	
+	@Override
+	public boolean addOrder(Order order) {
+        if (orderDAO.getOrderById(order.getId())!=null) {
+            return false;
+        } else {
+        	orderDAO.addOrder(order);
+            return true;
+        }
+	}
 
 }

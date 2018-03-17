@@ -10,4 +10,5 @@ public interface IOrderService {
 	String getOrderStatusById(int id);
 	void deleteOrder(int id);
 	void setStatusOrder(int id, String status);
+	boolean addOrder(Order order);
 }

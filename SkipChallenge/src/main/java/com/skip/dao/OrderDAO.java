@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skip.entity.Order;
-import com.skip.entity.Product;
 
 @Transactional
 @Repository
@@ -26,6 +25,11 @@ public class OrderDAO implements IOrderDAO {
 		return entityManager.find(Order.class, id);
 	}
 
+	@Override
+	public void addOrder(Order order) {
+		entityManager.persist(order);
+	}
+	
 	@Override
 	public String getOrderStatusById(int id) {
 		Order ord = getOrderById(id);

@@ -4,6 +4,7 @@ import com.skip.entity.Product;
 
 import java.util.List;
 
+import com.skip.entity.Customer;
 import com.skip.entity.Order;
 
 public interface IOrderDAO {
@@ -12,5 +13,6 @@ public interface IOrderDAO {
 	String getOrderStatusById(int id);
 	void deleteOrder(int id);
 	void setStatusOrder(int id, String status);
+	void addOrder(Order order);
 	//void addOrder(Order order);
 }
